@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Title = props => <h1>{props.value}</h1>;
+const Title = ({value}) => <h1>{value}</h1>;
 
-const Button = (props) => (
-    <button onClick={props.handleClick}>
-        {props.text}
+const Button = ({text, handleClick}) => (
+    <button onClick={handleClick}>
+        {text}
     </button>
 );
 
@@ -54,7 +54,8 @@ const App = () => {
         }
     };
 
-    const average = (list) => list.length > 0 ? (list.reduce((sum, value) => sum + value, 0) / list.length).toFixed(2) : 0;
+    const average = (list) =>
+        list.length > 0 ? (list.reduce((sum, value) => sum + value, 0) / list.length).toFixed(2) : 0;
 
     const positivePercentage = (list) => {
         if (list.length < 1) return 0;
